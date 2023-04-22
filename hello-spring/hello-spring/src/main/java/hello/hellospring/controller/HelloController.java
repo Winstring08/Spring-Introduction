@@ -3,6 +3,7 @@ package hello.hellospring.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.*;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloController {
@@ -14,6 +15,11 @@ public class HelloController {
         return"hello"; //Thymeleaf 템플릿 엔진이 resources:templates에서 hello.html을 찾아서 
         //"hello"를 hello.html로 변환후 처리
         // resources:templates/hello.html
+            }
 
+    @GetMapping("hello-mvc")
+    public String helloMvc(@RequestParam("name") String name, Model model){
+        model.addAttribute( "name", name);
+        return "hello-template";
     }
 }

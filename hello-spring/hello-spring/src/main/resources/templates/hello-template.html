@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text="'hello ' + ${name}">hello! empty</p>
+<!--hello! empty는 서버에 연결하지 않고 Absolute Path를 주소창에 입력해서 들어갈경우 표시되는 문구-->
+</body>
+</html>
+
+<!--
+웹브라우저에서 주소를 넘기면 내장톰캣서버에서 hello-mvc를 Spring에 던짐
+Spring은 hello-mvc가 helloController에 mapping이 되어있다는것을 확인하고 그 메서드를 호출
+return과 model을 Spring에 넘겨주면 viewResolver(view를 찾아주고 템플릿 엔진에 연결)가 동작
+ViewResolver가 templates에 return과 이름이 같은 html을 찾고 Thymeleaf 템플릿 엔진에 처리를 요청
+Thymeleaf 템플릿 엔진은 렌더링하여 변환한 html을 웹브라우저에 반환-->
